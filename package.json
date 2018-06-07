@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "npm run build:bs && npm run build:wp",
     "build:bs": "bsb -make-world -clean-world",
-    "build": "webpack --config ./config/webpack.prod.js",
+    "build:wp": "webpack --config ./config/webpack.prod.js",
     "start": "webpack-dev-server --open --config ./config/webpack.dev.js",
     "watch": "bsb -make-world -clean-world -w"
   },
