@@ -1,0 +1,40 @@
+{
+  "name": "coinadvisor-ui",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:bs": "bsb -make-world -clean-world",
+    "build": "webpack --config ./config/webpack.prod.js",
+    "start": "webpack-dev-server --open --config ./config/webpack.dev.js",
+    "watch": "bsb -make-world -clean-world -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArjanJ/coinadvisor-ui.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArjanJ/coinadvisor-ui/issues"
+  },
+  "homepage": "https://github.com/ArjanJ/coinadvisor-ui#readme",
+  "dependencies": {
+    "bs-react-native": "^0.8.0",
+    "react": "^16.4.0",
+    "react-art": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-native-web": "^0.8.3",
+    "reason-react": "^0.4.2"
+  },
+  "devDependencies": {
+    "bs-platform": "^3.1.5",
+    "clean-webpack-plugin": "^0.1.19",
+    "html-webpack-plugin": "^3.2.0",
+    "uglifyjs-webpack-plugin": "^1.2.5",
+    "webpack": "^4.11.1",
+    "webpack-cli": "^3.0.3",
+    "webpack-dev-server": "^3.1.4",
+    "webpack-merge": "^4.1.2"
+  }
+}

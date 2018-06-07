@@ -1,0 +1,14 @@
+{
+  "name": "coinadvisor-ui",
+  "reason": {
+    "react-jsx": 2
+  },
+  "bsc-flags": ["-bs-super-errors"],
+  "bs-dependencies": ["bs-react-native", "reason-react"],
+  "sources": [
+    {
+      "dir": "src/re"
+    }
+  ],
+  "refmt": 3
+}

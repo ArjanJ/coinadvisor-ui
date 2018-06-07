@@ -59,3 +59,14 @@ typings/
 
 # next.js build output
 .next
+
+.DS_Store
+
+# Production build
+/build
+
+# Buckelscript build
+/lib
+
+# OCAML thing
+.merlin
