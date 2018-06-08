@@ -7,7 +7,9 @@
     "build": "npm run build:bs && npm run build:wp",
     "build:bs": "bsb -make-world -clean-world",
     "build:wp": "webpack --config ./config/webpack.prod.js",
+    "ios": "react-native-scripts ios",
     "start": "webpack-dev-server --open --config ./config/webpack.dev.js",
+    "start-native": "react-native-scripts start",
     "watch": "bsb -make-world -clean-world -w"
   },
   "repository": {
@@ -22,9 +24,11 @@
   "homepage": "https://github.com/ArjanJ/coinadvisor-ui#readme",
   "dependencies": {
     "bs-react-native": "^0.8.0",
+    "expo": "^27.0.2",
     "react": "^16.4.0",
     "react-art": "^16.4.0",
     "react-dom": "^16.4.0",
+    "react-native": "^0.55.4",
     "react-native-web": "^0.8.3",
     "reason-react": "^0.4.2"
   },
@@ -32,6 +36,7 @@
     "bs-platform": "^3.1.5",
     "clean-webpack-plugin": "^0.1.19",
     "html-webpack-plugin": "^3.2.0",
+    "react-native-scripts": "^1.14.0",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "webpack": "^4.11.1",
     "webpack-cli": "^3.0.3",
