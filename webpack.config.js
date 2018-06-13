@@ -23,6 +23,7 @@ const devConfig = {
   devtool: 'inline-source-map',
   devServer: {
     contentBase: 'build/',
+    historyApiFallback: true,
   },
 };
 

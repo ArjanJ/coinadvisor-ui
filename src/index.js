@@ -3,8 +3,10 @@
 
 var ReactDOMRe = require("reason-react/src/ReactDOMRe.js");
 var ReasonReact = require("reason-react/src/ReasonReact.js");
-var Root$CoinadvisorUi = require("./root/Root.js");
+var Routes$CoinadvisorUi = require("./root/Routes.js");
 
-ReactDOMRe.renderToElementWithId(ReasonReact.element(/* None */0, /* None */0, Root$CoinadvisorUi.make(/* array */[])), "root");
+ReactDOMRe.renderToElementWithId(ReasonReact.element(/* None */0, /* None */0, Routes$CoinadvisorUi.make(/* array */[])), "root");
+
+ReasonReact.Router[/* push */0]("");
 
 /*  Not a pure module */

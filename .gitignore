@@ -70,3 +70,6 @@ typings/
 
 # OCAML thing
 .merlin
+
+# Ignore compiled JS files
+/src/**/*.js
