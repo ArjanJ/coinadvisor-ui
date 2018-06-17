@@ -21,12 +21,18 @@ let component = ReasonReact.statelessComponent("Auth");
 
 let make = (~authState, children) => {
   ...component,
+  didMount: (_self) => {
+    /* Redirect to Login page if user is not authenticated. */
+    if (authState.status === Unauthenticated) {
+      ReasonReact.Router.push("login");
+    }
+  },
   render: (_self) =>
   (
     switch authState.status {
     | Authenticated => (children |> ReasonReact.array)
     | Authenticating => <div>(ReasonReact.string("Authenticating"))</div>
-    | Unauthenticated => <Login />
+    | Unauthenticated => <div>(ReasonReact.string("Unauthenticated"))</div>
     }
   )
 }

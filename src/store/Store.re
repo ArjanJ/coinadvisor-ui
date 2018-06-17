@@ -9,10 +9,11 @@ let initialState = () => {
   auth: Auth.initialState(),
 };
 
-let reducer = (action, state) =>
+let reducer = (action, state) => {
   switch action {
   | Auth(authAction) => ReasonReact.Update({ auth: Auth.reducer(authAction, state.auth) })
   };
+}
 
 let component = ReasonReact.reducerComponent("Store");
 
@@ -20,5 +21,5 @@ let make = (children) => {
   ...component,
   initialState,
   reducer,
-  render: ({state}) => children(state)
+  render: ({state, send}) => children(state, send)
 };

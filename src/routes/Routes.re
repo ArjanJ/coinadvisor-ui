@@ -38,11 +38,11 @@ let make = (_children) => {
   ],
   render: ({state}) =>
     <Store>
-      ...(appState =>
+      ...((appState, send) =>
         (
           switch state.route {
           | Dashboard => <Auth authState=appState.auth><Dashboard key="dashboard" /></Auth>
-          | Login => <Login />
+          | Login => <Login dispatch=((action) => send(Auth(action))) />
           }
         )
       )
