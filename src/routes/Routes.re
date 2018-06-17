@@ -1,7 +1,6 @@
 type route =
   | Dashboard
   | Login
-  | Signup;
 
 type state = { route };
 
@@ -13,6 +12,10 @@ let reducer = (action, _state) =>
   | ChangeRoute(route) => ReasonReact.Update({ route: route })
   };
 
+let initialState = () => {
+  route: Dashboard
+};
+
 let component = ReasonReact.reducerComponent("Routes");
 
 let mapUrlToRoute = (url: ReasonReact.Router.url) =>
@@ -20,13 +23,12 @@ let mapUrlToRoute = (url: ReasonReact.Router.url) =>
   | [] => Dashboard
   | ["dashboard"] => Dashboard
   | ["login"] => Login
-  | ["signup"] => Signup
   | _ => Dashboard
   };
 
 let make = (_children) => {
   ...component,
-  initialState: () => { route: Signup },
+  initialState,
   reducer,
   subscriptions: (self) => [
     Sub(
@@ -34,14 +36,15 @@ let make = (_children) => {
       ReasonReact.Router.unwatchUrl
     )
   ],
-  render: (self) =>
-    <div>
-      (
-        switch self.state.route {
-        | Dashboard => <div>(ReasonReact.string("Dashboard"))</div>
-        | Login => <div>(ReasonReact.string("Login"))</div>
-        | Signup => <div>(ReasonReact.string("Signup"))</div>
-        }
+  render: ({state}) =>
+    <Store>
+      ...(appState =>
+        (
+          switch state.route {
+          | Dashboard => <Auth authState=appState.auth><Dashboard key="dashboard" /></Auth>
+          | Login => <Login />
+          }
+        )
       )
-    </div>,
+    </Store>,
 };
