@@ -40,10 +40,14 @@ let make = (_children) => {
     <Store>
       ...((appState, send) =>
         (
-          switch state.route {
-          | Dashboard => <Auth authState=appState.auth><Dashboard key="dashboard" /></Auth>
-          | Login => <Login dispatch=((action) => send(Auth(action))) />
-          }
+          <Background>
+            (
+              switch state.route {
+              | Dashboard => <Auth authState=appState.auth><Dashboard key="dashboard" /></Auth>
+              | Login => <Login dispatch=((action) => send(Auth(action))) />
+              }
+            )          
+          </Background>
         )
       )
     </Store>,
