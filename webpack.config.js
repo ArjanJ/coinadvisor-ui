@@ -24,6 +24,9 @@ const devConfig = {
   devServer: {
     contentBase: 'build/',
     historyApiFallback: true,
+    proxy: {
+      '/api': 'http://localhost:6000',
+    },
   },
 };
 
