@@ -13,7 +13,7 @@ let reducer = (action, _state) =>
   };
 
 let initialState = () => {
-  route: Dashboard
+  route: Dashboard,
 };
 
 let component = ReasonReact.reducerComponent("Routes");
@@ -38,12 +38,13 @@ let make = (_children) => {
   ],
   render: ({state}) =>
     <Store>
-      ...((appState, _send) =>
+      ...((appState, send) =>
         (
           <Background>
             (
               switch state.route {
-              | Dashboard => <Auth authState=appState.auth><Dashboard key="dashboard" /></Auth>
+              | Dashboard =>
+                <Auth authState=appState.auth authDispatch=((action) => send(Auth(action)))><Dashboard key="dashboard" /></Auth>
               | Login => <Login />
               }
             )          

@@ -19,13 +19,15 @@ let reducer = (action, _state) =>
 
 let component = ReasonReact.statelessComponent("Auth");
 
-let make = (~authState, children) => {
+let make = (~authState, ~authDispatch, children) => {
   ...component,
   didMount: (_self) => {
-    /* Redirect to Login page if user is not authenticated. */
-    if (authState.status === Unauthenticated) {
-      ReasonReact.Router.push("login");
-    }
+    let token = Cookie.getJWT();
+
+    switch token {
+    | None => ReasonReact.Router.push("login")
+    | Some(_t) => authDispatch(ChangeAuthStatus(Authenticated))
+    };
   },
   render: (_self) =>
   (

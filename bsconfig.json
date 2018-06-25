@@ -18,6 +18,6 @@
     }
   ],
   "namespace": true,
-  "bs-dependencies": ["reason-react", "bs-fetch"],
+  "bs-dependencies": ["reason-react", "bs-fetch", "@justgage/reason-cookie"],
   "refmt": 3
 }
