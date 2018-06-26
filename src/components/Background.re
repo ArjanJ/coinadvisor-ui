@@ -1,5 +1,5 @@
 let style = ReactDOMRe.Style.make(
-  ~backgroundColor = "#1D1D2C",
+  ~backgroundColor = Theme.color(SteelGray),
   ~minHeight = "100vh",
   ()
 );

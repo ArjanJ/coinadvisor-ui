@@ -1,10 +1,12 @@
 let component = ReasonReact.statelessComponent("Login");
 
+let rs = ReasonReact.string;
+
 let make = (_children) => {
 ...component,
 render: (_self) =>
   <section>
-    <h1>(ReasonReact.string("Sign in"))</h1>
-    <a href="/api/auth/google">(ReasonReact.string("Google"))</a>
+    <Heading>(rs("Sign in"))</Heading>
+    <a href="/api/auth/google">(rs("Sign in with Google"))</a>
   </section>
 };
