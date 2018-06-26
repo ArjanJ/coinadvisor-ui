@@ -4,7 +4,7 @@ let style = ReactDOMRe.Style.make(
   ()
 );
 
-let component = ReasonReact.statelessComponent("AppContainer");
+let component = ReasonReact.statelessComponent("Background");
 
 let make = (children) => {
   ...component,
