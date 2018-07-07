@@ -11,7 +11,6 @@ render: (_self) =>
     <Heading>(rs("Sign in"))</Heading>
     <a href="/api/auth/google">(rs("Sign in with Google"))</a>
     (title(
-      {"_": ""},
       <p>(rs("in a p tag"))</p>
     ))
   </section>

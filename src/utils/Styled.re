@@ -3,32 +3,24 @@ type tag =
 
 let classNameMap = Js.Dict.empty();
 
-Js.Dict.set(classNameMap, "whatthe", "fuck");
+let getClassNameHash = css => {
+  let hash = "sc-" ++ MurmurHash.v3(css);
 
-let makeClassNameHash = css => {
-  let hash = MurmurHash.v3(css);
+  let className =
+    switch (Js.Dict.get(classNameMap, hash)) {
+    | None => Js.Dict.set(classNameMap, hash, css)
+    };
 
-  switch (Js.Dict.get(classNameMap, hash)) {
-  | None => Js.Dict.set(classNameMap, hash, css)
-  | Some(h) => h
-  };
+  hash;
 };
 
-let renderStyledComponent = (props, tag, css, children) => {
 
-  let className = makeClassNameHash(css);
-
-  Js.log(className);
-
-  /* Js.Dict.set(classNameMap, className, css); */
-
-  /* let f = Js.Dict.get(classNameMap, className); */
-
-  /* Js.log(f); */
-
+let renderStyledComponent = (tag, css, children) => {
+  let className = getClassNameHash(css);
+  
   ReasonReact.element(
     StyledComponent.make(
-      ~props=props,
+      ~props={"className": className},
       ~tag=tag,
       [| children |],
     )
@@ -37,6 +29,6 @@ let renderStyledComponent = (props, tag, css, children) => {
 
 let component = tag => {
   switch tag {
-  | H1(css) => (props, children) => renderStyledComponent(props, "h1", css, children)
+  | H1(css) =>  children => renderStyledComponent("h1", css, children)
   }
 };
