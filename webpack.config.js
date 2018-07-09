@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const isProd = process.env.NODE_ENV === 'production';
 
 const commonConfig = {
-  entry: './src/Index.js',
+  entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'app.[hash].js',
@@ -15,6 +15,27 @@ const commonConfig = {
       template: './src/index.html',
     }),
   ],
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            [
+              'env',
+              {
+                node: 'current',
+              },
+            ],
+            'react',
+          ],
+          plugins: ['transform-regenerator', ['transform-runtime']],
+        },
+      },
+    ],
+  },
 };
 
 const devConfig = {
@@ -22,10 +43,12 @@ const devConfig = {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: 'build/',
+    contentBase: 'public/',
     historyApiFallback: true,
     proxy: {
-      '/api': 'http://localhost:6000',
+      '/api': {
+        target: 'http://localhost:6000',
+      },
     },
   },
 };
