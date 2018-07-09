@@ -64,12 +64,3 @@ typings/
 
 # Production build
 /build
-
-# Buckelscript build
-/lib
-
-# OCAML thing
-.merlin
-
-# Ignore compiled JS files
-/src/**/*.js
