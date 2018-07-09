@@ -6,16 +6,16 @@ const Common = styled.span`
   margin-bottom: 2.4rem;
 `;
 
-const H1 = Common.extend`
+const h1 = Common.extend`
   font-size: 3rem;
 `.withComponent('h1');
 
-const H2 = Common.extend`
+const h2 = Common.extend`
   font-size: 2.4rem;
 `.withComponent('h2');
 
-const H3 = Common.extend`
+const h3 = Common.extend`
   font-size: 2rem;
 `.withComponent('h3');
 
-export { H1, H2, H3 };
+export { h1, h2, h3 };
