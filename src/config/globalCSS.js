@@ -31,7 +31,7 @@ injectGlobal`
 
   body {
     font-size: 1.6rem;
-    line-height: 1.5rem;
+    line-height: 1.5;
     margin: 0;
   }
 
@@ -43,5 +43,11 @@ injectGlobal`
   h6,
   p {
     margin: 0;
+  }
+
+  button,
+  input,
+  select {
+    font-size: inherit;
   }
 `;
