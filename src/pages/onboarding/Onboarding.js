@@ -62,7 +62,7 @@ Onboarding.propTypes = {
     params: PropTypes.shape({
       onboardingStep: PropTypes.string.isRequired,
     }).isRequired,
-  }),
+  }).isRequired,
 };
 
 export default Onboarding;
