@@ -31,7 +31,11 @@ const commonConfig = {
             ],
             'react',
           ],
-          plugins: ['transform-regenerator', ['transform-runtime']],
+          plugins: [
+            'transform-regenerator',
+            ['transform-runtime'],
+            'transform-class-properties',
+          ],
         },
       },
     ],
@@ -43,7 +47,7 @@ const devConfig = {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: 'public/',
+    contentBase: 'build/',
     historyApiFallback: true,
     proxy: {
       '/api': {
